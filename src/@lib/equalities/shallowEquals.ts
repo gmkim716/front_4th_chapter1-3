@@ -26,7 +26,7 @@ export function shallowEquals<T extends object>(objA: T, objB: T): boolean {
     (item) =>
       Object.prototype.hasOwnProperty.call(objB, item) &&
       (objA as { [key: string]: unknown })[item] ===
-        (objB as { [key: string]: unknown })[item]
+        (objB as { [key: string]: unknown })[item],
   );
   // // 4-2. 방식2: for-of 사용
   // for (const key of keysA) {

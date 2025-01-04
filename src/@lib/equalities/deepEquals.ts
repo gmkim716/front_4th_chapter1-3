@@ -38,7 +38,7 @@ export function deepEquals<T>(objA: T, objB: T): boolean {
   return keysA.every(
     (key) =>
       Object.prototype.hasOwnProperty.call(objB, key) &&
-      deepEquals(objA[key as keyof T], objB[key as keyof T])
+      deepEquals(objA[key as keyof T], objB[key as keyof T]),
   );
 
   // for (const key of keysA) {
