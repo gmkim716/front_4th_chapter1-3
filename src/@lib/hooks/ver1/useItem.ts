@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import { generateItems } from "../../../utils";
 import { ITEMS_LENGTH } from "../../../const";
 
-export const useHandleItem = () => {
+export function useItem() {
   const [items, setItems] = useState(() => generateItems(ITEMS_LENGTH));
   const [filter, setFilter] = useState("");
 
@@ -18,19 +18,19 @@ export const useHandleItem = () => {
       items.filter(
         (item) =>
           item.name.toLowerCase().includes(filter.toLowerCase()) ||
-          item.category.toLowerCase().includes(filter.toLowerCase()),
+          item.category.toLowerCase().includes(filter.toLowerCase())
       ),
-    [items, filter],
+    [items, filter]
   );
 
   const totalPrice = useMemo(
     () => filteredItems.reduce((sum, item) => sum + item.price, 0),
-    [filteredItems],
+    [filteredItems]
   );
 
   const averagePrice = useMemo(
     () => Math.round(totalPrice / filteredItems.length) || 0,
-    [totalPrice, filteredItems.length],
+    [totalPrice, filteredItems.length]
   );
 
   return {
@@ -41,4 +41,4 @@ export const useHandleItem = () => {
     totalPrice,
     averagePrice,
   };
-};
+}

@@ -18,9 +18,9 @@ export function useItem() {
       items.filter(
         (item) =>
           item.name.toLowerCase().includes(filter.toLowerCase()) ||
-          item.category.toLowerCase().includes(filter.toLowerCase()),
+          item.category.toLowerCase().includes(filter.toLowerCase())
       ),
-    [items, filter],
+    [items, filter]
   );
 
   return {
